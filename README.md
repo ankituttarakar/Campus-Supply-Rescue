@@ -241,11 +241,3 @@ Open **`http://localhost:3000`** in your browser.
 
 ---
 
-## 11. Viva Questions & Answers (Cheat Sheet)
-
-- **Q: Why use PostgreSQL + pgvector instead of a separate vector database?**  
-  *A: Relational campus management requires ACID transactions, row-level locks, and referential integrity. pgvector allows vector similarity search directly inside SQL queries alongside relational filters (`WHERE category_id = ... AND quantity_available > 0`) in a single query plan without distributed transaction overhead.*
-- **Q: How does the system handle race conditions during simultaneous reservations?**  
-  *A: The stored procedure `sp_reserve_supply` issues `SELECT ... FOR UPDATE` on the supply record. This serializes concurrent transactions at the database engine level, verifying `quantity_available >= requested_quantity` before deducting stock.*
-- **Q: What is the Rescue Chain?**  
-  *A: The Rescue Chain models historical relational provenance, tracking multi-hop item movement across campus units over time with exact quantities, timestamps, and staff sign-offs.*
