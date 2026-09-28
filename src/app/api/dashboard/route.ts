@@ -21,7 +21,7 @@ export async function GET() {
     // 2. Department-level Statistics from Relational View
     const deptStatsRes = await query(`
       SELECT * FROM view_department_rescue_stats
-      ORDER BY total_items_donated DESC;
+      ORDER BY total_units_transferred_out DESC;
     `);
 
     // 3. Category Surplus Analysis from Relational View

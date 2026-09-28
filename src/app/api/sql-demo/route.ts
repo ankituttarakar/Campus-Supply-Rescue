@@ -170,9 +170,8 @@ WHERE (SELECT COALESCE(SUM(quantity_total), 0) FROM supplies WHERE department_id
     department_name,
     department_code,
     total_supplies_listed,
-    total_items_donated,
-    total_items_transferred_out,
-    total_items_received,
+    total_units_transferred_out,
+    total_units_received,
     estimated_avoided_procurement_value
 FROM view_department_rescue_stats
 ORDER BY estimated_avoided_procurement_value DESC;`,
@@ -182,9 +181,8 @@ ORDER BY estimated_avoided_procurement_value DESC;`,
           department_name,
           department_code,
           total_supplies_listed,
-          total_items_donated,
-          total_items_transferred_out,
-          total_items_received,
+          total_units_transferred_out,
+          total_units_received,
           estimated_avoided_procurement_value
         FROM view_department_rescue_stats
         ORDER BY estimated_avoided_procurement_value DESC;
